@@ -16,9 +16,16 @@ public class NameSorterApp
 
     public void SortAndSaveNamesToFile()
     {
+        // Read names from the input file
         List<string> names = ReadNamesFromFile();
+
+        // Sort the names
         List<string> sortedNames = SortNames(names);
+
+        // Print sorted names to the console
         PrintSortedNames(sortedNames);
+
+        // Save sorted names to the output file
         SaveSortedNamesToFile(sortedNames);
     }
 
@@ -50,13 +57,12 @@ public class NameSorterApp
         return names;
     }
 
-
     private List<string> SortNames(List<string> names)
     {
         List<string> sortedNames = new List<string>();
 
+        // Split names into parts, reverse the parts, and store them in a list of lists
         List<List<string>> listOfLists = new List<List<string>>();
-
         foreach (string name in names)
         {
             string[] nameParts = name.Split(' ');
@@ -68,8 +74,10 @@ public class NameSorterApp
             listOfLists.Add(nameList);
         }
 
+        // Sort the list of lists using the NameComparator
         listOfLists.Sort(new NameComparator());
 
+        // Reverse the name parts in each list, join them into full names, and add them to the sorted names list
         foreach (List<string> nameList in listOfLists)
         {
             nameList.Reverse();
@@ -79,6 +87,8 @@ public class NameSorterApp
 
         return sortedNames;
     }
+
+    // Custom comparator for comparing two lists of strings (name parts)
     private class NameComparator : IComparer<List<string>>
     {
         public int Compare(List<string>? names1, List<string>? names2)
@@ -90,6 +100,7 @@ public class NameSorterApp
 
             int minLength = Math.Min(names1.Count, names2.Count);
 
+            // Compare name parts element by element
             for (int i = 0; i < minLength; i++)
             {
                 int result = names1[i].CompareTo(names2[i]);
@@ -99,13 +110,14 @@ public class NameSorterApp
                 }
             }
 
+            // If all name parts are equal, compare based on the number of name parts
             return names1.Count.CompareTo(names2.Count);
         }
     }
 
-
     private void PrintSortedNames(List<string> sortedNames)
     {
+        // Print each sorted name to the console
         foreach (string sortedName in sortedNames)
         {
             Console.WriteLine(sortedName);
@@ -118,6 +130,7 @@ public class NameSorterApp
         {
             using (StreamWriter writer = new StreamWriter(outputFileName))
             {
+                // Write each sorted name to the output file
                 foreach (string sortedName in sortedNames)
                 {
                     writer.WriteLine(sortedName);
@@ -141,10 +154,12 @@ public class NameSorterApp
         string inputFileName = args[0];
         string outputFileName = "sorted-names-list.txt";
 
+        // Create a new instance of NameSorterApp
         NameSorterApp nameSorter = new NameSorterApp(inputFileName, outputFileName);
 
         try
         {
+            // Sort and save names to file
             nameSorter.SortAndSaveNamesToFile();
         }
         catch (IOException e)
