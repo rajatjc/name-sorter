@@ -3,7 +3,6 @@ mono: none
 dotnet: 6.0
 
 script:
-  - dotnet clean
-  - dotnet restore
+  - dotnet run unsorted-names-list.txt 
   - ./publish/name-sorter unsorted-names-list.txt 
 

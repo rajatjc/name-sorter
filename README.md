@@ -147,40 +147,46 @@ The entry point of the application. It reads the input file name from the comman
 
 
 
-## Unit Test
+# Unit Tests
 
-To ensure the correctness of the `NameSorterApp` class, the following tests have been implemented using JUnit [NameSorterAppTest](test/NameSortesAppTest.java):
+This project includes a comprehensive set of unit tests to verify the functionality and correctness of the `NameSorterApp` class. The tests are implemented using NUnit, a popular unit testing framework for C#.
 
-### `testSortAndSaveNamesToFile()`
+## Running the Unit Tests
 
-This test verifies the `sortAndSaveNamesToFile()` method of the `NameSorterApp` class. It performs the following steps:
+To run the unit tests, follow these steps:
 
-1. **Arrange**: Sets up the input and output file names and creates an instance of the `NameSorterApp` class.
-2. **Act**: Calls the `sortAndSaveNamesToFile()` method.
-3. **Assert**: Compares the expected sorted names with the actual names read from the output file. If they match, the test passes; otherwise, it fails.
+1. Make sure you have the necessary dependencies installed. In this case, NUnit and the NUnit Test Adapter are required.
+2. Open the solution in Visual Studio or your preferred IDE.
+3. Build the solution to ensure all the necessary files are compiled.
+4. Navigate to the "Test Explorer" window in Visual Studio.
+5. In the "Test Explorer," you will see a list of available tests. Click the "Run All" button to execute all the tests.
+6. The test results will be displayed in the "Test Explorer" window, indicating whether each test passed or failed.
 
-This test ensures that the `sortAndSaveNamesToFile()` method correctly sorts the names and saves them to the output file.
+## Overview of Unit Tests
 
-### `testSortAndSaveNamesToFile_InvalidInputFile()`
+The unit tests cover various aspects of the `NameSorterApp` class to ensure its functionality is correct. Here is a brief overview of the available tests:
 
-This test checks the handling of an invalid input file in the `sortAndSaveNamesToFile()` method. It performs the following steps:
+### `SortNames_ValidNames_SortedNames`
 
-1. **Arrange**: Sets up the non-existent input file name and the output file name. Creates an instance of the `NameSorterApp` class.
-2. **Assert**: Verifies that an `IOException` is thrown when calling the `sortAndSaveNamesToFile()` method with the non-existent input file.
+This test verifies that the `SortNames` method correctly sorts a list of valid names. It performs the following steps:
 
-This test ensures that the `sortAndSaveNamesToFile()` method handles the case of an invalid input file gracefully by throwing an exception.
+1. **Arrange**: Creates a list of names in a random order.
+2. **Act**: Calls the `SortNames` method with the list of names.
+3. **Assert**: Compares the expected sorted names with the actual sorted names returned by the method. If they match, the test passes; otherwise, it fails.
 
-### `testMain()`
+This test ensures that the `SortNames` method properly sorts the names according to the expected order.
 
-This test verifies the `main()` method of the `NameSorterApp` class. It performs the following steps:
+### ... (Add more test descriptions for other test cases)
 
-1. **Arrange**: Sets up the command-line arguments with the input file name.
-2. **Act**: Calls the `main()` method.
-3. **Assert**: Add any specific assertions if required.
+## Contributing
 
-This test ensures that the `main()` method can be executed without any exceptions.
+If you find any issues or want to contribute to the unit tests, feel free to open an issue or submit a pull request. Your contributions are highly appreciated!
 
-These tests cover different scenarios and help ensure the correctness and robustness of the `NameSorterApp` class.
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
 
 
 ## Conclusion
