@@ -3,9 +3,11 @@ language: csharp
 
 before_install:
   - sudo apt-get install -y dotnet-sdk-6.0
+
 jobs:
   include:
     - dotnet: 6.0.118
+    
 script:
   - dotnet build
   - dotnet test

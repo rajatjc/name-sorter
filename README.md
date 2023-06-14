@@ -1,80 +1,56 @@
 # Name Sorter App
 
 ## Introduction
-Name Sorter App is a Java application that reads a list of names from a text file, reverses each name, sorts them in ascending order, and saves the sorted names to a new text file. It provides a command-line interface to execute the sorting operation.
+Name Sorter App is a .NET application that reads a list of names from a text file, reverses each name, sorts them in ascending order, and saves the sorted names to a new text file. It provides a command-line interface to execute the sorting operation.
 
 ## Prerequisites
 To run the Name Sorter App, ensure that you have the following software installed on your system:
-- Java Development Kit (JDK) 8 or later
+- .NET SDK 6.0 or later
 - Command-line interface (Terminal or Command Prompt)
 
+## Compilation using dotnet run
 
-## Usage using shell script
-I have included a shell script to make it easier to run the given java program.
-To run the Java program `NameSorterApp.java` using the provided shell script, follow these steps:
+To compile and run the .NET application using the `dotnet run` command, follow these steps:
 
-1. Save the shell script code to a file, for example, `run_name_sorter.sh`.
-
-2. Open a terminal or command prompt and navigate to the directory where the shell script and the `NameSorterApp.java` file are located.
-
-3. Make sure you have the necessary permissions to execute the shell script. If needed, you can give the execute permission by running the command:
-
-```bash
-chmod +x name-sorter.sh
-```
-
-4. Run the shell script by providing the input file name as an argument. For example, if your input file is named unsorted-names-list.txt, run the command:
-
- ```bash
-./name-sorter.sh unsorted-names-list.txt
-```
-
-5. The script will compile the NameSorterApp.java file and then execute the Java program with the provided input file. The sorted names will be printed to the console.
-
-If the compilation and execution are successful, you will see the sorted names displayed in the terminal or command prompt.
-
-If there are any errors during compilation or execution, appropriate error messages will be displayed.
-
-Note: Make sure you have Java Development Kit (JDK) installed on your system and the `javac` and `java` commands are accessible from the command line.
-
-
-## Compilation using javac
-To compile the Java file and create the executable class file, follow these steps:
 1. Open a terminal or command prompt.
-2. Navigate to the directory where the `NameSorterApp.java` file is located.
-3. Run the following command to compile the Java file:
- ```
-javac NameSorterApp.java
-```
-4. After successful compilation, an `NameSorterApp.class` file will be generated in the same directory.
-
-## Usage using java cli
-To use the Name Sorter App, follow these steps:
-
-1. Prepare an input file containing a list of names. Each name should be on a separate line.
-2. Open a terminal or command prompt.
-3. Navigate to the directory where the `NameSorterApp.class` file is located.
-4. Execute the following command to run the application:
+2. Navigate to the directory where the `NameSorterApp.cs` file is located.
+3. Run the following command to publish the application:
 
 ```
-java NameSorterApp <input_file_path>
+dotnet publish -c release -r <runtime_identifier> --self-contained
 ```
 
-Replace `<input_file_path>` with the path to your input file.
-In this case according to the given description it should be `./unsorted-names-list.txt`.
+Replace `<runtime_identifier>` with the appropriate value for your target runtime. For example, if you are targeting Windows with an x64 architecture, the runtime identifier would be `win-x64`. This command will generate the executable files in the publish directory. In this case it will be `ubuntu.16.04-x64`.
 
+4. Navigate to the publish directory:
+
+```
+cd bin/release/net6.0/ubuntu.16.04-x64/publish
+```
+
+5. Run the application using the following command:
+
+```
+./name-sorter ./unsorted-names-list.txt
+```
+
+Replace `unsorted-names-list.txt` with the path to your input file containing the list of names.
+
+By following these steps, the .NET application will be compiled, published, and executed, sorting the names and saving the sorted names to a new file.
+
+I saved the publish folder in the main directory also you can go there can repeat the same steps.
 
 ## Functionality
 
-### `sortAndSaveNamesToFile()`
+### `SortAndSaveNamesToFile()`
 This method is responsible for orchestrating the entire sorting and saving process. It reads the names from the input file, reverses and sorts them, prints the sorted names to the console, and saves them to the output file.
 
-### `readNamesFromFile()`
-This method reads the names from the input file and returns them as a list. It uses a `BufferedReader` to read each line from the file and adds it to the list of names.
+### `ReadNamesFromFile()`
+This method reads the names from the input file and returns them as a list. It uses a `StreamReader` to read each line from the file and adds it to the list of names.
 
-### `sortNames(List<String> names)`
+### `SortNames(List<string> names)`
 
-The `sortNames` function is responsible for sorting a list of names based on specific criteria. It takes a `List<String>` of names as input and returns a new list containing the sorted names.
+The `SortNames` function is responsible for sorting a list of names based on specific criteria. It takes a `List<string>` of names as input and returns a new list containing the sorted names.
 
 #### Sorting Logic
 
@@ -120,23 +96,24 @@ The sorting process would proceed as follows:
    - David Johnson
    - John Smith
 
-The `sortNames` function follows this logic to sort the names based on the specified criteria.
+The `SortNames` function follows this logic to sort the names based on the specified criteria.
+
 ### `NameComparator` Class
 
-The `NameComparator` class is a custom comparator that implements the `Comparator<List<String>>` interface. It is used to compare two lists of name components based on specific criteria.
+The `NameComparator` class is a custom comparator that implements the `IComparer<List<string>>` interface. It is used to compare two lists of name components based on specific criteria.
 
 #### Sorting Logic
 
-The `compare` method in the `NameComparator` class follows the following sorting logic:
+The `Compare` method in the `NameComparator` class follows the following sorting logic:
 
 1. Find the minimum length between the two name lists. This determines the maximum index to iterate over the name components.
 
 2. Compare the name components at each index of the lists:
-    - The `compareTo` method is used to compare the name components lexicographically, considering the ASCII values of characters.
+    - The `CompareTo` method is used to compare the name components lexicographically, considering the ASCII values of characters.
     - If the name components at the current index are not equal (result != 0), the comparison result is returned.
 
 3. If all the common name components are equal, compare the remaining name components based on their lengths:
-    - The `Integer.compare` method is used to compare the sizes of the name lists.
+    - The `Count` property is used to compare the sizes of the name lists.
     - A negative value is returned if the first name list is smaller, a positive value if the second name list is smaller, and 0 if they have the same size.
 
 #### Example
@@ -156,14 +133,19 @@ The comparison process would proceed as follows:
 
 The `NameComparator` class provides the sorting logic required to compare lists of name components for sorting purposes.
 
-### `printSortedNames(List<String> sortedNames)`
+### `PrintSortedNames(List<string> sortedNames)`
 This method takes a list of sorted names as input and prints each name to the console.
 
-### `saveSortedNamesToFile(List<String> sortedNames)`
-This method takes a list of sorted names as input and saves each name to the output file. It uses a `BufferedWriter` to write each name to the file, with each name on a separate line.
+### `SaveSortedNamesToFile(List<string> sortedNames)`
+This method takes a list of sorted names as input and saves each name to the output file. It uses a `StreamWriter` to write each name to the file, with each name on a separate line.
 
-### `reverseNameWithDelimiter(String name, String delimiter)`
+### `ReverseNameWithDelimiter(string name, string delimiter)`
 This method takes a name and a delimiter as input and reverses the name by splitting it into words using the delimiter, reversing the order of the words, and joining them back using the delimiter. It returns the reversed name as a string.
+
+### `Main(string[] args)`
+The entry point of the application. It reads the input file name from the command-line arguments, creates an instance of `NameSorterApp`, and calls the `SortAndSaveNamesToFile` method to perform the sorting and saving process.
+
+
 
 ## Unit Test
 
