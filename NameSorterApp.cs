@@ -57,7 +57,7 @@ public class NameSorterApp
         return names;
     }
 
-    private List<string> SortNames(List<string> names)
+    public List<string> SortNames(List<string> names)
     {
         List<string> sortedNames = new List<string>();
 
