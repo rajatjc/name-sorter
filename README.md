@@ -31,7 +31,7 @@ cd bin/release/net6.0/ubuntu.16.04-x64/publish
 5. Run the application using the following command:
 
 ```
-./name-sorter ./unsorted-names-list.txt
+./publish/name-sorter ./unsorted-names-list.txt
 ```
 
 Replace `unsorted-names-list.txt` with the path to your input file containing the list of names.
@@ -158,9 +158,11 @@ To run the unit tests, follow these steps:
 1. Make sure you have the necessary dependencies installed. In this case, NUnit and the NUnit Test Adapter are required.
 2. Open the solution in Visual Studio or your preferred IDE.
 3. Build the solution to ensure all the necessary files are compiled.
-4. Navigate to the "Test Explorer" window in Visual Studio.
-5. In the "Test Explorer," you will see a list of available tests. Click the "Run All" button to execute all the tests.
-6. The test results will be displayed in the "Test Explorer" window, indicating whether each test passed or failed.
+4. Go to the [StringLibraryTest](StringLibraryTest) folder and run the command 
+
+```
+dotnet test
+``` 
 
 ## Overview of Unit Tests
 
@@ -176,17 +178,9 @@ This test verifies that the `SortNames` method correctly sorts a list of valid n
 
 This test ensures that the `SortNames` method properly sorts the names according to the expected order.
 
-### ... (Add more test descriptions for other test cases)
-
 ## Contributing
 
 If you find any issues or want to contribute to the unit tests, feel free to open an issue or submit a pull request. Your contributions are highly appreciated!
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-
 
 
 ## Conclusion
