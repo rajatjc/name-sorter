@@ -1,12 +1,9 @@
 language: csharp
-
-
-before_install:
-  - sudo apt install dotnet-sdk-6.0
-
+mono: none
+dotnet: 6.0
 
 script:
+  - dotnet restore
   - dotnet build
-  - dotnet test
   - ./publish/name-sorter unsorted-names-list.txt 
 
