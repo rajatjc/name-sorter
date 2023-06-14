@@ -4,6 +4,6 @@ dotnet: 6.0
 
 script:
   - dotnet restore
-  - dotnet build
+  - dotnet run unsorted-names-list.txt 
   - ./publish/name-sorter unsorted-names-list.txt 
 
