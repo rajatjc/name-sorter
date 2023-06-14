@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "MaL8nLVHa0W2rmht8nypSfz1GUIIHiR4Ji8M1FKOZl6a0f0uBUISktfsNNedC9XPUtveqHVtYkPdlx4IBeeHbQ==",
+  "success": true,
+  "projectFilePath": "/home/rajat/IdeaProjects/name-sorter/name-sorter.csproj",
+  "expectedPackageFiles": [
+    "/home/rajat/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/6.0.18/microsoft.netcore.app.runtime.linux-x64.6.0.18.nupkg.sha512",
+    "/home/rajat/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/6.0.18/microsoft.aspnetcore.app.runtime.linux-x64.6.0.18.nupkg.sha512",
+    "/home/rajat/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.18/microsoft.netcore.app.host.linux-x64.6.0.18.nupkg.sha512"
+  ],
+  "logs": []
+}
