@@ -41,6 +41,7 @@ public class NameSorterApp
                 while ((line = reader.ReadLine()) != null)
                 {
                     names.Add(line);
+                    // sadad
                 }
             }
         }

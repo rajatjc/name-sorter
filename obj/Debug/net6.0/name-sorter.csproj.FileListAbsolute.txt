@@ -7,7 +7,6 @@
 /home/rajat/IdeaProjects/name-sorter/bin/Debug/net6.0/name-sorter.deps.json
 /home/rajat/IdeaProjects/name-sorter/bin/Debug/net6.0/name-sorter.runtimeconfig.json
 /home/rajat/IdeaProjects/name-sorter/bin/Debug/net6.0/name-sorter.dll
-/home/rajat/IdeaProjects/name-sorter/bin/Debug/net6.0/ref/name-sorter.dll
 /home/rajat/IdeaProjects/name-sorter/bin/Debug/net6.0/name-sorter.pdb
 /home/rajat/IdeaProjects/name-sorter/bin/Debug/net6.0/nunit.framework.dll
 /home/rajat/IdeaProjects/name-sorter/obj/Debug/net6.0/name-sorter.csproj.CopyComplete
@@ -15,3 +14,4 @@
 /home/rajat/IdeaProjects/name-sorter/obj/Debug/net6.0/ref/name-sorter.dll
 /home/rajat/IdeaProjects/name-sorter/obj/Debug/net6.0/name-sorter.pdb
 /home/rajat/IdeaProjects/name-sorter/obj/Debug/net6.0/name-sorter.genruntimeconfig.cache
+/home/rajat/IdeaProjects/name-sorter/obj/Debug/net6.0/refint/name-sorter.dll
