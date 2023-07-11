@@ -7,6 +7,7 @@ public class NameSorterApp
 {
     private readonly string inputFileName;
     private readonly string outputFileName;
+    //    private readonly string outputFileName;
 
     public NameSorterApp(string inputFileName, string outputFileName)
     {
